@@ -62,6 +62,9 @@ class CountryListFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(CountryListViewModel::class.java)
 
         viewModel.listCountries().observe(this, Observer {
+            countryListProgressBar.visibility = View.GONE
+            listCountriesRecyclerView.visibility = View.VISIBLE
+
             if (it?.errorMessage?.isNotEmpty() == true) {
                 Toast.makeText(context, it.errorMessage, Toast.LENGTH_LONG).show()
             } else {

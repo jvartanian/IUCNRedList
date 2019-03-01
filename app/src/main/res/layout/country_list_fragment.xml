@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.countrylist.CountryListFragment"
-    android:id="@+id/listCountriesRecyclerView">
+    tools:context=".ui.countrylist.CountryListFragment">
 
-</android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listCountriesRecyclerView"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/countryListProgressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:indeterminate="true"
+        android:layout_gravity="center"/>
+
+</FrameLayout>
