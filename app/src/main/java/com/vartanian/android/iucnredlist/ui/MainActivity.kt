@@ -6,7 +6,7 @@ import com.vartanian.android.iucnredlist.R
 import com.vartanian.android.iucnredlist.ui.countrylist.CountryListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SettableTitle {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +22,13 @@ class MainActivity : AppCompatActivity() {
                     .add(R.id.mainContainer, countryFragment, CountryListFragment::class.simpleName)
                     .commit()
             }
+        }
+    }
+
+    override fun setTitle(title: String) {
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.title = title
         }
     }
 }
