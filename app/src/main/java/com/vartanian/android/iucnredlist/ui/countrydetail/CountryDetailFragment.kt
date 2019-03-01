@@ -62,6 +62,9 @@ class CountryDetailFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(CountryDetailViewModel::class.java)
 
         viewModel.listSpecies(arguments!!.getString(KEY_ISO_CODE)!!).observe(this, Observer {
+            countryDetailProgressBar.visibility = View.GONE
+            countryDetailRecyclerView.visibility = View.VISIBLE
+
             if (it?.errorMessage?.isNotEmpty() == true) {
                 Toast.makeText(context, it.errorMessage, Toast.LENGTH_LONG).show()
             } else {
